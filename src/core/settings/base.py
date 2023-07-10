@@ -19,6 +19,7 @@ LOCAL_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    "graphene_django",
     "corsheaders",
     "debug_toolbar",
 ]
@@ -40,6 +41,10 @@ INSTALLED_APPS = [
     *THIRD_PARTY_APPS,
     *LOCAL_APPS,
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'myapp.schema.schema'
+}
 
 # MIDDLEWARE
 MIDDLEWARE = [
