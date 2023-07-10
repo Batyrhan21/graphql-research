@@ -27,7 +27,7 @@ class ImageProductModel(BaseModel):
     )
 
     def __str__(self) -> str:
-        return _(str(f"{self.product.title}'s image"))
+        return str(f"{self.product.title}'s image")
 
     class Meta:
         db_table = "product__product_image"
@@ -41,7 +41,7 @@ class Category(BaseModel):
     )
 
     def __str__(self) -> str:
-        return _(f"Category: {self.title}")
+        return str(f"Category: {self.title}")
 
     class Meta:
         db_table = "product__category"
@@ -66,7 +66,7 @@ class Product(BaseModel):
     )
 
     def __str__(self) -> str:
-        return _(f"Product: {self.title}")
+        return str(f"Product: {self.title}")
 
     class Meta:
         db_table = "product__product"
