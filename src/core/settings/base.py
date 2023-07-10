@@ -16,6 +16,7 @@ PRODUCTION = env("PRODUCTION", default=False, cast=bool)
 LOCAL_APPS = [
     "common",
     "product",
+    "accounts",
 ]
 
 THIRD_PARTY_APPS = [
@@ -119,6 +120,23 @@ EXTRA_SMALL_THUMBNAIL_SIZE = 100, 100
 SMALL_THUMBNAIL_SIZE = 512, 512
 MEDIUM_THUMBNAIL_SIZE = 1024, 1024
 BIG_THUMBNAIL_SIZE = 1400, 1400
+
+AUTH_USER_MODEL = "accounts.User"
+
+AUTH_PASSWORD_VALIDATORS = [
+    # {
+    #     "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    # },
+    # {
+    #     "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    # },
+    # {
+    #     "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    # },
+    # {
+    #     "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    # },
+]
 
 
 from .cors import *
