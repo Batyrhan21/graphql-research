@@ -25,6 +25,8 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "debug_toolbar",
     "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
+    "graphql_auth",
+    'django_filters',
 ]
 
 THEME_APPS = [
@@ -47,7 +49,7 @@ INSTALLED_APPS = [
 
 #GraphQL Settings
 GRAPHENE = {
-    "SCHEMA": "product.schemas.schema",
+    "SCHEMA": "accounts.schemas.schema",
     "MIDDLEWARE": [
         "graphql_jwt.middleware.JSONWebTokenMiddleware",
     ],
@@ -146,7 +148,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 #GraphQL Auth Setttings
 AUTHENTICATION_BACKENDS = [
-    "graphql_jwt.backends.JSONWebTokenBackend",
+    #"graphql_jwt.backends.JSONWebTokenBackend",
+    "graphql_auth.backends.GraphQLAuthBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 

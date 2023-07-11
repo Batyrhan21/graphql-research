@@ -1,11 +1,12 @@
-Django==4.2.3
-graphene-django==3.1.2
+Django
+graphene-django
+django-graphql-jwt
+django-graphql-auth
 django-debug-toolbar==4.1.0
 django-jazzmin==2.6.0
 django-modeltranslation==0.18.10
-Pillow==10.0.0
+Pillow==9.5.0
 requests==2.31.0
 python-decouple==3.8
 django-cors-headers==4.1.0
-django-graphql-jwt==0.3.4
-django-graphql-auth==0.3.0
+django-filter==23.2

@@ -1,0 +1,20 @@
+query{
+  users{
+    edges{
+      node{
+        username
+        email
+        photo
+        phone
+        isStaff
+        isActive
+      }
+    }
+  }
+}
+
+query{
+  me{
+    username
+  }
+}
