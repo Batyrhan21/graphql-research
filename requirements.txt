@@ -7,3 +7,5 @@ Pillow==10.0.0
 requests==2.31.0
 python-decouple==3.8
 django-cors-headers==4.1.0
+django-graphql-jwt==0.3.4
+django-graphql-auth==0.3.0
