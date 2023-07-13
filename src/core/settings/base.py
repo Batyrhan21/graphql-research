@@ -26,7 +26,7 @@ THIRD_PARTY_APPS = [
     "debug_toolbar",
     "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
     "graphql_auth",
-    'django_filters',
+    "django_filters",
 ]
 
 THEME_APPS = [
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     *LOCAL_APPS,
 ]
 
-#GraphQL Settings
+# GraphQL Settings
 GRAPHENE = {
     "SCHEMA": "accounts.schemas.schema",
     "MIDDLEWARE": [
@@ -101,7 +101,7 @@ LANGUAGES = (
 MODELTRANSLATION_DEFAULT_LANGUAGE = "ru"
 MODELTRANSLATION_LANGUAGES = ("ru", "ky", "en")
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = "ru"
-MODELTRANSLATION_TRANSLATION_REGISTRY = 'common.translation'
+MODELTRANSLATION_TRANSLATION_REGISTRY = "common.translation"
 
 
 TIME_ZONE = "Asia/Bishkek"
@@ -146,20 +146,35 @@ AUTH_PASSWORD_VALIDATORS = [
     # },
 ]
 
-#GraphQL Auth Setttings
+# GraphQL Auth Setttings
 AUTHENTICATION_BACKENDS = [
-    #"graphql_jwt.backends.JSONWebTokenBackend",
     "graphql_auth.backends.GraphQLAuthBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-#GraphQL JWT
+# GraphQL JWT
 GRAPHQL_JWT = {
+    "JWT_ALLOW_ANY_CLASSES": [
+        "graphql_auth.mutations.Register",
+        "graphql_auth.mutations.VerifyAccount",
+        "graphql_auth.mutations.ResendActivationEmail",
+        "graphql_auth.mutations.SendPasswordResetEmail",
+        "graphql_auth.mutations.PasswordReset",
+        "graphql_auth.mutations.ObtainJSONWebToken",
+        "graphql_auth.mutations.VerifyToken",
+        "graphql_auth.mutations.RefreshToken",
+        "graphql_auth.mutations.RevokeToken",
+        "graphql_auth.mutations.VerifySecondaryEmail",
+    ],
     "JWT_VERIFY_EXPIRATION": True,
     "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
     "JWT_EXPIRATION_DELTA": timedelta(minutes=5),
     "JWT_REFRESH_EXPIRATION_DELTA": timedelta(days=7),
+    "JWT_AUTH_HEADER_PREFIX": "Bearer",
+    "JWT_ALGORITHM": "HS256",
 }
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 from .cors import *
 from .thems import *

@@ -28,6 +28,20 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         verbose_name=_("ФИО"),
         help_text=_("Enter only the full name"),
     )
+    first_name = models.CharField(
+        blank=True,
+        null=True,
+        max_length=250,
+        verbose_name=_("First name"),
+        help_text=_("Enter only the first name"),
+    )
+    last_name = models.CharField(
+        blank=True,
+        null=True,
+        max_length=250,
+        verbose_name=_("Last name"),
+        help_text=_("Enter only the last name"),
+    )
     photo = models.ImageField(
         _("Photo"), upload_to="user_media/%Y/%m/%d/", null=True, blank=True
     )
@@ -53,6 +67,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     )
 
     USERNAME_FIELD = "username"
+    EMAIL_FIELD = "email"
 
     objects = UserManager()
 
